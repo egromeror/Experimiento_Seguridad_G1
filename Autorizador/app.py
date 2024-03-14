@@ -13,3 +13,7 @@ jwt = JWTManager(app)
 api = Api(app)
 
 api.add_resource(VistaToken, '/token')
+
+@app.route('/')
+def hello():
+    return 'Hola, soy autorizador'
