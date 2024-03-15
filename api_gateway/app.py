@@ -34,7 +34,7 @@ while True:
    time.sleep(10)   
    new_evento = Evento(
        nombre="Evento 1",
-       fecha=datetime.datetime.now(),
+       fecha=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
        lugar="Lugar 1"
    )
    

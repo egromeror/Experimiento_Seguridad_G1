@@ -61,7 +61,7 @@ def send_request_gestor():
                 except:
                     continue
                 
-                status_code = actuar(json.dumps(message_data))
+                status_code = actuar(message_data)
                 print(status_code)
                 print(f"Evento verificado: {message_data}")
             except json.JSONDecodeError:

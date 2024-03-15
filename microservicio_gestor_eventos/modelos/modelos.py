@@ -6,7 +6,7 @@ db = SQLAlchemy()
 class Evento(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre = db.Column(db.String(100), nullable=False)
-    fecha = db.Column(db.DateTime, nullable=False)
+    fecha = db.Column(db.String(20), nullable=False)
     lugar = db.Column(db.String(100), nullable=False)
 
     def __init__(self, nombre, fecha, lugar):

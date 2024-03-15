@@ -8,9 +8,10 @@ evento_schema = EventoSchema()
 
 class VistaEventosCommands(Resource):
     def post(self):
+        print(request.json)
         new_evento = Evento(
             nombre=request.json['nombre'],
-            fecha=datetime.datetime.strptime(request.json['fecha'],'%d/%m/%Y'),
+            fecha=request.json['fecha'],
             lugar=request.json['lugar']
         )
         db.session.add(new_evento)
@@ -21,11 +22,7 @@ class VistaEventoCommands(Resource):
     def put(self, id):
         evento = Evento.query.get_or_404(id)
         evento.nombre = request.json['nombre']
-        pfecha = datetime.datetime.strptime(request.json['fecha'],'%d/%m/%Y')
-        pfecha2 = pfecha.strftime("%d/%m/%Y, %H:%M:%S")
-        print(pfecha)
-        print(pfecha2)
-        # evento.fecha = datetime.datetime.utcnow(),
+        evento.fecha = request.json['fecha']
         evento.lugar = request.json['lugar']
         db.session.commit()
         return evento_schema.dump(evento)
