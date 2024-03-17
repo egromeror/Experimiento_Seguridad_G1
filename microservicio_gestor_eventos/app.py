@@ -4,6 +4,7 @@ from flask_cors import CORS
 from .modelos import db
 from .vistas import VistaEventosCommands,VistaEventoCommands,VistaEventosQueries,VistaEventoQueries
 
+
 app = create_app('default')
 app_context = app.app_context()
 app_context.push()
